@@ -1,0 +1,83 @@
+[
+    {
+        "key": "dbln",
+        "value": "%7B%22100091798445418%22%3A%22xPtAbZ8I%22%2C%2261555667406096%22%3A%22jZ5mcvoZ%22%7D",
+        "domain": "facebook.com",
+        "path": "/login/device-based/",
+        "hostOnly": false,
+        "creation": "2024-03-31T15:46:38.110Z",
+        "lastAccessed": "2024-03-31T15:46:38.111Z"
+    },
+    {
+        "key": "datr",
+        "value": "QkCmZcLDqWup3DjEKPzbdoJm",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-03-31T15:46:38.111Z",
+        "lastAccessed": "2024-03-31T15:46:38.111Z"
+    },
+    {
+        "key": "sb",
+        "value": "QkCmZe3iRcyJ8LJ0ZD9je6da",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-03-31T15:46:38.111Z",
+        "lastAccessed": "2024-03-31T15:46:38.111Z"
+    },
+    {
+        "key": "ps_n",
+        "value": "0",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-03-31T15:46:38.111Z",
+        "lastAccessed": "2024-03-31T15:46:38.111Z"
+    },
+    {
+        "key": "ps_l",
+        "value": "0",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-03-31T15:46:38.111Z",
+        "lastAccessed": "2024-03-31T15:46:38.111Z"
+    },
+    {
+        "key": "c_user",
+        "value": "61555667406096",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-03-31T15:46:38.111Z",
+        "lastAccessed": "2024-03-31T15:46:38.111Z"
+    },
+    {
+        "key": "xs",
+        "value": "9%3AV-wO56vnjX5U8Q%3A2%3A1711795380%3A-1%3A3735",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-03-31T15:46:38.111Z",
+        "lastAccessed": "2024-03-31T15:46:38.111Z"
+    },
+    {
+        "key": "fr",
+        "value": "0sGHh4sNXB2yLz5ae.AWVfy5TcNQ2VRD3ij12APLGQ98A.Blplkl..AAA.0.0.BmB-y0.AWU_G2o297Y",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-03-31T15:46:38.111Z",
+        "lastAccessed": "2024-03-31T15:46:38.111Z"
+    },
+    {
+        "key": "m_page_voice",
+        "value": "61555667406096",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-03-31T15:46:38.111Z",
+        "lastAccessed": "2024-03-31T15:46:38.111Z"
+    }
+]
