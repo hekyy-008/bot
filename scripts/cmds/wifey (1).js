@@ -20,7 +20,7 @@ module.exports = {
     api.setMessageReaction("🕐", event.messageID, (err) => {}, true);
 
     try {
-      const response = await axios.get(`https://wifey-csz1.onrender.com/kshitiz`, { responseType: "stream" });
+      const response = await axios.get(`https://wifey-97gf.onrender.com/kshitiz`, { responseType: "stream" });
 
       const tempVideoPath = path.join(__dirname, "cache", `${Date.now()}.mp4`);
 
