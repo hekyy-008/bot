@@ -19,7 +19,7 @@ module.exports = {
      api.setMessageReaction("🕐", event.messageID, (err) => {}, true);
     try {
       const prompt = args.join(" ");
-      const emiApiUrl = "https://ai-tools.replit.app/emi";
+      const emiApiUrl = "https://deku-rest-api.onrender.com/emi";
 
       const emiResponse = await axios.get(emiApiUrl, {
         params: {
