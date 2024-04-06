@@ -20,7 +20,7 @@ module.exports = {
     api.setMessageReaction("🕐", event.messageID, (err) => {}, true);
 
     try {
-      const response = await axios.get("https://ani-vid.onrender.com/kshitiz");
+      const response = await axios.get("https://anivid.onrender.com/kshitiz");
       const postData = response.data.posts;
       const randomIndex = Math.floor(Math.random() * postData.length);
       const randomPost = postData[randomIndex];
