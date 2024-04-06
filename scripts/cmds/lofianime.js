@@ -20,7 +20,7 @@ module.exports = {
     api.setMessageReaction("🕐", event.messageID, (err) => {}, true);
 
     try {
-      const response = await axios.get(`https://lofi-anime-592v.onrender.com/kshitiz`, { responseType: "stream" });
+      const response = await axios.get(`https://lofi-anime.onrender.com/kshitiz`, { responseType: "stream" });
 
       const tempVideoPath = path.join(__dirname, "cache", `${Date.now()}.mp4`);
 
