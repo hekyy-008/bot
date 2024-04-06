@@ -78,25 +78,10 @@ async function kshitiz(api, event, args, message) {
   }
 }
 
-
-const a = {
-  name: "gpt",
-  aliases: ["chatgpt"],
-  version: "3.0",
-  author: "vex_kshitiz",
-  countDown: 5,
-  role: 0,
-  longDescription: "Chat with GPT-4",
-  category: "ai",
-  guide: {
-    en: "{p}gpt {prompt}"
-  }
-};
-
 async function b(c, d, e, f) {
   try {
-    const g = await axios.get(`https://ai-tools.replit.app/gpt?prompt=${encodeURIComponent(c)}&uid=${d}&apikey=kshitiz`);
-    return g.data.gpt4;
+    const g = await axios.get(`https://gpt-four.vercel.app/gpt?prompt=${encodeURIComponent(c)}&uid=${d}`);
+    return g.data.answer;
   } catch (h) {
     throw h;
   }
@@ -104,8 +89,8 @@ async function b(c, d, e, f) {
 
 async function i(c) {
   try {
-    const j = await axios.get(`https://ai-tools.replit.app/sdxl?prompt=${encodeURIComponent(c)}&styles=7`, { responseType: 'arraybuffer' });
-    return j.data;
+    const j = await axios.get(`https://sdxl-kshitiz.onrender.com/gen?prompt=${encodeURIComponent(c)}&style=3`);
+    return j.data.url;
   } catch (k) {
     throw k;
   }
@@ -124,11 +109,29 @@ async function describeImage(prompt, photoUrl) {
 async function l({ api, message, event, args }) {
   try {
     const m = event.senderID;
-    const n = args.join(" ").trim();
-    const draw = args[0].toLowerCase() === "draw";
-    const prompt = args[0].toLowerCase() === "prompt";
-    const sendTikTok = args[0].toLowerCase() === "send";
-    const sing = args[0].toLowerCase() === "sing";
+    let n = "";
+    let draw = false;
+    let sendTikTok = false;
+    let sing = false;
+
+    if (args[0].toLowerCase() === "draw") {
+      draw = true;
+      n = args.slice(1).join(" ").trim();
+    } else if (args[0].toLowerCase() === "send") {
+      sendTikTok = true;
+      n = args.slice(1).join(" ").trim();
+    } else if (args[0].toLowerCase() === "sing") {
+      sing = true;
+      n = args.slice(1).join(" ").trim();
+    } else if (event.messageReply && event.messageReply.attachments && event.messageReply.attachments.length > 0) {
+      const photoUrl = event.messageReply.attachments[0].url;
+      n = args.join(" ").trim();
+      const description = await describeImage(n, photoUrl);
+      message.reply(`Description: ${description}`);
+      return;
+    } else {
+      n = args.join(" ").trim();
+    }
 
     if (!n) {
       return message.reply("Please provide a prompt.");
@@ -136,14 +139,6 @@ async function l({ api, message, event, args }) {
 
     if (draw) {
       await drawImage(message, n);
-    } else if (prompt) {
-      if (event.messageReply && event.messageReply.attachments && event.messageReply.attachments.length > 0) {
-        const photoUrl = event.messageReply.attachments[0].url;
-        const description = await describeImage(n, photoUrl);
-        message.reply(`Description: ${description}`);
-      } else {
-        return message.reply("Please reply to an image to describe it.");
-        }
     } else if (sendTikTok) {
       await kshitiz(api, event, args.slice(1), message); 
     } else if (sing) {
@@ -168,17 +163,44 @@ async function drawImage(message, prompt) {
     const u = await i(prompt);
 
     const v = path.join(__dirname, 'cache', `image_${Date.now()}.png`);
-    fs.writeFileSync(v, u);
+    const writer = fs.createWriteStream(v);
 
-    message.reply({
-      body: "Generated image:",
-      attachment: fs.createReadStream(v)
+    const response = await axios({
+      url: u,
+      method: 'GET',
+      responseType: 'stream'
+    });
+
+    response.data.pipe(writer);
+
+    return new Promise((resolve, reject) => {
+      writer.on('finish', resolve);
+      writer.on('error', reject);
+    }).then(() => {
+      message.reply({
+        body: "Generated image:",
+        attachment: fs.createReadStream(v)
+      });
     });
   } catch (w) {
     console.error("Error:", w.message);
     message.reply("An error occurred while processing the request.");
   }
 }
+
+const a = {
+  name: "gpt",
+  aliases: ["chatgpt"],
+  version: "5.0",
+  author: "vex_kshitiz",
+  countDown: 5,
+  role: 0,
+  longDescription: "Chat with gpt",
+  category: "ai",
+  guide: {
+    en: "{p}gemini {prompt}"
+  }
+};
 
 module.exports = {
   config: a,
